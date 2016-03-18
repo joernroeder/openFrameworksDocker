@@ -18,3 +18,8 @@ RUN cd /openFrameworks/scripts/linux/ubuntu/; ./install_dependencies.sh -y
 RUN apt-get install  libmpg123-dev gstreamer1.0 gstreamer1.0-plugins-ugly -y
 
 RUN cd /openFrameworks/scripts/linux/; ./compileOF.sh -j3
+
+RUN mkdir /openFrameworks/apps/myApps/app/; ln -s /openFrameworks/apps/myApps/app/ /app
+
+WORKDIR /openFrameworks/apps/myApps/app
+CMD make -j4; make RunRelease
