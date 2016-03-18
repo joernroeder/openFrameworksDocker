@@ -1,0 +1,18 @@
+#
+#
+#
+FROM ubuntu:15.10
+MAINTAINER Jonas Jongejan "jonas@halfdanj.dk"
+
+ENV OF_VERSION 0.9.3
+
+RUN apt-get update && apt-get install -y wget apt-utils
+
+RUN wget http://openframeworks.cc/versions/v${OF_VERSION}/of_v${OF_VERSION}_linux64_release.tar.gz
+RUN tar -xzvf /of_v${OF_VERSION}_linux64_release.tar.gz
+RUN mv /of_v${OF_VERSION}_linux64_release /openFrameworks
+
+RUN cd /openFrameworks/scripts/linux/ubuntu/; ./install_dependencies.sh -y
+#RUN cd /openFrameworks/scripts/linux/ubuntu/; ./install_codecs.sh
+
+RUN cd /openFrameworks/scripts/linux/; ./compileOF.sh -j3
