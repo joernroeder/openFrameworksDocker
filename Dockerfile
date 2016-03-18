@@ -15,4 +15,6 @@ RUN mv /of_v${OF_VERSION}_linux64_release /openFrameworks
 RUN cd /openFrameworks/scripts/linux/ubuntu/; ./install_dependencies.sh -y
 #RUN cd /openFrameworks/scripts/linux/ubuntu/; ./install_codecs.sh
 
+RUN apt-get install  libmpg123-dev gstreamer1.0 gstreamer1.0-plugins-ugly -y
+
 RUN cd /openFrameworks/scripts/linux/; ./compileOF.sh -j3
