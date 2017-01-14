@@ -4,7 +4,7 @@
 FROM ubuntu:15.10
 MAINTAINER Jonas Jongejan "jonas@halfdanj.dk"
 
-ENV OF_VERSION 0.9.3
+ENV OF_VERSION 0.9.8
 
 RUN apt-get update && apt-get install -y wget apt-utils
 
